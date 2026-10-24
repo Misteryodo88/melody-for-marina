@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080f20">
+  <title>Мелодия одного вечера</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="stars stars-one"></div>
+    <div class="stars stars-two"></div>
+    <div class="moon"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="logo" href="#home">✳ МЕЛОДИЯ ОДНОГО ВЕЧЕРА</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="eyebrow">ОДНА ПЕСНЯ · ОДИН ВЕЧЕР</div>
+
+      <div class="guitar-scene" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="guitar">♫</div>
+        <span class="star star-a">✦</span>
+        <span class="star star-b">✧</span>
+        <span class="side-note note-a">тише слов</span>
+        <span class="side-note note-b">ближе к музыке</span>
+      </div>
+
+      <h1>Есть вещи,<br>
+        <em>которые проще сыграть,</em><br>
+        чем сказать
+      </h1>
+
+      <p class="intro">
+        Иногда настроение превращается в песню<br>
+        И ею просто хочется поделиться
+      </p>
+
+      <button class="primary-button" id="enter-button">
+        <span>▶</span> Послушать песенку <span>↗</span>
+      </button>
+
+    </section>
+
+    <section class="section" id="music">
+      <div class="section-heading">
+        <div class="eyebrow">МУЗЫКА</div>
+        <h2>Для настроения</h2>
+        <p>Живая гитара, голос и несколько минут вне суеты</p>
+      </div>
+
+      <div class="music-card">
+        <div class="record-art">
+          <div class="record-halo"></div>
+          <div class="record">
+            <div class="record-label">К</div>
+          </div>
+          <span class="record-star">✦</span>
+        </div>
+
+        <div class="player">
+          <div class="eyebrow">ИСПОЛНЕНИЕ ПЕЛЬМЕНЯ</div>
+          <h3>Про Кешу</h3>
+
+          <audio id="song" preload="metadata">
+            <source src="assets/marina_audio.m4a" type="audio/mpeg">
+          </audio>
+
+          <div id="audio-placeholder" class="placeholder">
+            <span class="music-icon">♫</span>
+            <div>
+              <strong>Здесь скоро зазвучит моя песня</strong>
+              <p>Добавь запись в папку <code>assets/song.mp3</code></p>
+            </div>
+          </div>
+
+          <div class="controls" id="controls" hidden>
+            <button id="play-button" class="play-button"
+              aria-label="Воспроизвести песню">▶</button>
+            <div class="timeline">
+              <div class="time-labels">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+              </div>
+              <input id="seek" type="range" min="0" max="100" value="0"
+                step="0.1" aria-label="Позиция воспроизведения">
+            </div>
+          </div>
+
+          <div class="volume" id="volume-row" hidden>
+            <span>♪</span>
+            <input id="volume" type="range" min="0" max="1"
+              step="0.05" value="0.8" aria-label="Громкость">
+          </div>
+
+          <p id="player-message" class="player-message" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lyrics">
+
+
+      <div class="lyrics-card" id="lyrics-card">
+  
+
+        <div id="lyrics-lines" class="lyrics-lines"></div>
+
+
+      </div>
+    </section>
+
+<section class="section" id="photo-section">
+  <div class="section-heading">
+    <div class="eyebrow">ЕЩЁ ОДИН ФРАГМЕНТ</div>
+    <h2>Место для момента</h2>
+    <p>Некоторые мгновения хочется сохранить чуть дольше</p>
+  </div>
+
+  <div class="photo-placeholder" id="photo-placeholder">
+    <div class="photo-frame">
+      <span class="corner top-left"></span>
+      <span class="corner top-right"></span>
+      <span class="moon-symbol">☾</span>
+
+      <img
+        id="marina-photo"
+        src="assets/pelmen-kesha-1.png"
+        alt="Мгновение, которое хочется сохранить"
+        onerror="this.style.display='none'; document.getElementById('photo-placeholder').classList.add('photo-missing');"
+      >
+
+      <p class="photo-fallback">место для маленькой истории</p>
+
+      <span class="corner bottom-left"></span>
+      <span class="corner bottom-right"></span>
+    </div>
+
+    <p class="photo-caption">Есть мгновения, которым не нужны слова</p>
+  </div>
+</section>
+
+<!-- Блок стихов -->
+<section class="final-section poems-section" id="poems">
+  <div class="final-star">✧</div>
+  <div class="eyebrow">СТИХИ</div>
+  <h2>Строки озарения</h2>
+  <p class="poems-intro">Каждое стихотворение — маленькое настроение.</p>
+
+  <div class="poems-carousel" id="poems-carousel">
+    <button class="poem-arrow poem-prev" id="poem-prev"
+      aria-label="Предыдущее стихотворение">‹</button>
+
+    <div class="poems-viewport">
+      <div class="poems-track" id="poems-track">
+
+        <article class="poem-slide">
+          <h3>Озарение прекрасного</h3>
+          <p>
+            В чудесное утро приехал к тебе<br>
+Стоял у аптеки, был мыслях в себе<br>
+Посмотрел в зеркала, увидел тебя<br>
+И тут растерялся на мгновенье я<br><br>
+
+Образ был настолько прекрасен<br>
+Мир для меня вокруг стал не ясен<br>
+Я растерялся и стал сам не свой<br>
+Как и при первой встрече с тобой<br><br>
+
+Не помню о чем говорил по пути<br>
+Но охмелел на обратном пути <br>
+Я пропустил поворот на гараж<br>
+И покатился в Надеждено аж<br><br>
+
+Поднявшись на гору опомнился я<br>
+Что еду куда то совсем не туда<br>
+Настолько событием я впечатлен<br>
+Мозг на мгновенье был отключен 
+          </p>
+          <div class="poem-signature">✧</div>
+        </article>
+
+        <article class="poem-slide">
+          <h3>Пробуждение тепла </h3>
+          <p>
+
+
+Включил кино, устроился удобно<br>
+На мягкий я диван прилег<br>
+Глаза закрыл совсем случайно<br>
+И тут же засопел я как сурок<br><br>
+
+Проснулся от уведомленья<br>
+А в комнате совсем темно<br>
+Взял телефон — и вот оно везенье<br>
+Мне сообщение пришло<br><br>
+
+Спокойной ночи от Марины<br>
+И стало сразу так тепло<br>
+Всего лишь строчка от неё<br>
+А будто солнце ожило<br><br>
+
+И я желаю ей спокойной ночи<br>
+Красивых, нежных, сладких снов<br>
+Она прикроет свои очи<br>
+И ей приснится море из цветов
+          </p>
+          <div class="poem-signature">✧</div>
+        </article>
+
+        <article class="poem-slide">
+          <h3>Просто так</h3>
+          <p>
+           Вот утро за окном настало<br>
+И солнце землю созерцало<br>
+Осталось несколько деньков<br>
+Тепла, улыбок и цветов<br><br>
+
+А после холода придут<br>
+Дожди, снега нам принесут<br>
+Деревья снова полысеют<br>
+И ветры холодом повеют<br><br>
+
+Но что то я сгрустнул с утра<br>
+Опять нахлынула тоска<br>
+Есть способ настроение поднять<br>
+Лишь пару строк мне надо написать<br><br>
+
+Маришке утра доброго желаю<br>
+Лучей тепла ей посылаю<br>
+Чтоб в день сурка она сияла<br>
+И всех улыбкой согревала
+          </p>
+          <div class="poem-signature">✧</div>
+        </article>
+
+      </div>
+    </div>
+
+    <button class="poem-arrow poem-next" id="poem-next"
+      aria-label="Следующее стихотворение">›</button>
+  </div>
+
+  <div class="poems-pagination" id="poems-pagination"
+    aria-label="Выбор стихотворения">
+    <button class="poem-dot active" data-index="0"
+      aria-label="Стихотворение 1"></button>
+    <button class="poem-dot" data-index="1"
+      aria-label="Стихотворение 2"></button>
+    <button class="poem-dot" data-index="2"
+      aria-label="Стихотворение 3"></button>
+  </div>
+
+  <button id="back-to-top" class="text-button">
+    Вернуться к началу ↑
+  </button>
+</section>
+
+
+
+
+
+  </main>
+
+  <footer>
+    <span>СДЕЛАНО С ТЕПЛОМ</span>
+    <span class="footer-star">✦</span>
+    <span>ОДНА МЕЛОДИЯ · ОДИН ВЕЧЕР ДЛЯ КЕШЫ </span>
+  </footer>
+</body>
+</html>
