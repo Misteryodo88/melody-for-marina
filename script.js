@@ -19,6 +19,12 @@ const lyricsCard = document.querySelector("#lyrics-card");
 const lyricsContainer = document.querySelector("#lyrics-lines");
 const lyricsStatus = document.querySelector("#lyrics-status");
 
+function setLyricsStatus(message) {
+  if (lyricsStatus) {
+    lyricsStatus.textContent = message;
+  }
+}
+
 // Элементы видео
 const video = document.querySelector("#video");
 const videoPlaceholder = document.querySelector("#video-placeholder");
@@ -207,7 +213,7 @@ function setupAudio() {
     playButton.setAttribute("aria-label", "Пауза");
 
     musicCard.classList.add("is-playing");
-    lyricsStatus.textContent = "мелодия звучит";
+    setLyricsStatus("мелодия звучит");
   });
 
   audio.addEventListener("pause", () => {
@@ -215,12 +221,12 @@ function setupAudio() {
     playButton.setAttribute("aria-label", "Воспроизвести песню");
 
     musicCard.classList.remove("is-playing");
-    lyricsStatus.textContent = "пауза";
+    setLyricsStatus("пауза");
   });
 
   audio.addEventListener("ended", () => {
     musicCard.classList.remove("is-playing");
-    lyricsStatus.textContent = "мелодия завершилась";
+    setLyricsStatus("мелодия завершилась");
     seek.value = 100;
   });
 
@@ -238,7 +244,7 @@ function setupAudio() {
 async function togglePlayback() {
   if (audio.readyState === 0 || audio.error) {
     playerMessage.textContent =
-      "Добавь свою запись в папку assets под именем song.mp3.";
+      "Проверь аудиофайл в папке assets. Например, marina_audio.m4a.";
     return;
   }
 

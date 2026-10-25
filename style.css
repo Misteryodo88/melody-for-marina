@@ -514,6 +514,15 @@ input[type="range"] {
   padding: 5px 0 15px;
 }
 
+.lyrics-status {
+  min-height: 18px;
+  margin: 0;
+  color: var(--gold-dim);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+}
+
 .lyric-line {
   margin: 8px 0;
   color: #8e9ab0;
