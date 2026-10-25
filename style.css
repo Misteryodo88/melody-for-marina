@@ -827,13 +827,17 @@ footer {
 
 /* Фотография */
 .photo-placeholder {
-  max-width: 760px;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
 }
 
 .photo-frame {
   position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
   padding: 18px;
   border: 1px solid rgba(215, 184, 123, 0.25);
   background: rgba(255, 255, 255, 0.025);
@@ -843,9 +847,9 @@ footer {
 
 .photo-frame img {
   display: block;
-  width: 100%;
-  max-height: 650px;
-  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 100%;
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -919,10 +923,6 @@ footer {
 @media (max-width: 600px) {
   .photo-frame {
     padding: 12px;
-  }
-
-  .photo-frame img {
-    max-height: 480px;
   }
 
   .photo-frame .moon-symbol {
